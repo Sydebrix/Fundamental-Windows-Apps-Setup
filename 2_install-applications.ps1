@@ -1,7 +1,10 @@
 [CmdletBinding()]
 param(
-    [ValidateSet("All", "Base", "Dev", "AI", "Media")]
-    [string]$Profile = "All",
+    [ValidateSet("All", "Base", "Dev", "AI", "Media", "Extra")]
+    [string[]]$IncludeProfile = @("All"),
+
+    [ValidateSet("All", "Base", "Dev", "AI", "Media", "Extra")]
+    [string[]]$ExcludeProfile = @(),
 
     [ValidateSet("Auto", "Online", "Offline")]
     [string]$Mode = "Auto",
@@ -142,7 +145,7 @@ function Install-OnlinePackage {
         return $false
     }
 
-    $args = @(
+    $wingetArgs = @(
         "install",
         "--id", $Package.Id,
         "--exact",
@@ -154,26 +157,34 @@ function Install-OnlinePackage {
     )
 
     if ($Package.Scope) {
-        $args += @("--scope", $Package.Scope)
+        $wingetArgs += @("--scope", $Package.Scope)
     }
 
     if ($Package.PreferredInstallerType) {
-        $args += @("--installer-type", $Package.PreferredInstallerType)
+        $wingetArgs += @("--installer-type", $Package.PreferredInstallerType)
     }
 
-    & $winget @args
+    & $winget @wingetArgs
     return ($LASTEXITCODE -eq 0)
 }
 
-$packages = if ($Profile -eq "All") {
-    $PackageList
-}
-else {
-    $PackageList | Where-Object { $_.Groups -contains $Profile }
-}
+$packages = Select-PackagesByProfile `
+    -PackageList $PackageList `
+    -Profile $IncludeProfile `
+    -ExcludeProfile $ExcludeProfile
 
 if (-not $packages) {
-    Write-Host "No packages are currently assigned to profile '$Profile'."
+    $includedText = $IncludeProfile -join ", "
+    $excludedText = if ($ExcludeProfile.Count -gt 0) {
+        $ExcludeProfile -join ", "
+    }
+    else {
+        "<none>"
+    }
+
+    Write-Host "No packages matched the selected profiles."
+    Write-Host "Included: $includedText"
+    Write-Host "Excluded: $excludedText"
     exit 0
 }
 

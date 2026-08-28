@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
     [ValidateSet("All", "Base", "Dev", "AI", "Media")]
-    [string]$Profile = "All",
+    [string]$IncludeProfile = "All",
 
     [ValidateSet("Auto", "Online", "Offline")]
     [string]$Mode = "Auto",
@@ -43,17 +43,17 @@ if (-not $winget -and $Mode -ne "Offline") {
     }
 }
 
-$installArgs = @{
-    Profile = $Profile
+$wingetArgs = @{
+    Profile = $IncludeProfile
     Mode = $Mode
     Architecture = $Architecture
 }
 
 if ($InteractiveOfflineFallback) {
-    $installArgs.InteractiveOfflineFallback = $true
+    $wingetArgs.InteractiveOfflineFallback = $true
 }
 
-& (Join-Path $PSScriptRoot "2_install-applications.ps1") @installArgs
+& (Join-Path $PSScriptRoot "2_install-applications.ps1") @wingetArgs
 $installExitCode = $LASTEXITCODE
 
 if ($ApplyWindowsTweaks) {

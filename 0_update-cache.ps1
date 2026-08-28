@@ -1,7 +1,10 @@
 [CmdletBinding()]
 param(
-    [ValidateSet("All", "Base", "Dev", "AI", "Media")]
-    [string]$Profile = "All",
+    [ValidateSet("All", "Base", "Dev", "AI", "Media", "Extra")]
+    [string[]]$IncludeProfile = @("All"),
+
+    [ValidateSet("All", "Base", "Dev", "AI", "Media", "Extra")]
+    [string[]]$ExcludeProfile = @(),
 
     [ValidateSet("x64", "x86", "arm64")]
     [string]$Architecture = "x64",
@@ -27,12 +30,10 @@ if (-not $winget) {
     throw "WinGet is not available. Install it first, then rerun this cache update."
 }
 
-$packages = if ($Profile -eq "All") {
-    $PackageList
-}
-else {
-    $PackageList | Where-Object { $_.Groups -contains $Profile }
-}
+$packages = Select-PackagesByProfile `
+    -PackageList $PackageList `
+    -Profile $IncludeProfile `
+    -ExcludeProfile $ExcludeProfile
 
 $results = @()
 
@@ -66,7 +67,7 @@ foreach ($package in $packages) {
         --accept-source-agreements 2>&1 |
         Out-File (Join-Path $tempDirectory "winget-show.txt") -Encoding UTF8
 
-    $args = @(
+    $wingetArgs = @(
         "download",
         "--id", $package.Id,
         "--exact",
@@ -78,14 +79,14 @@ foreach ($package in $packages) {
     )
 
     if ($package.Scope) {
-        $args += @("--scope", $package.Scope)
+        $wingetArgs += @("--scope", $package.Scope)
     }
 
     if ($package.PreferredInstallerType) {
-        $args += @("--installer-type", $package.PreferredInstallerType)
+        $wingetArgs += @("--installer-type", $package.PreferredInstallerType)
     }
 
-    & $winget @args
+    & $winget @wingetArgs
     $exitCode = $LASTEXITCODE
 
     if ($exitCode -ne 0 -and $package.PreferredInstallerType) {
