@@ -7,25 +7,25 @@ access a hard dependency**.
 
 `I got a new laptop at work and don't want to install all my fundamental applications by hand.`
 
-```text
-0_update-cache.ps1
+<div style="white-space: pre-wrap;">
+0_update-cache.ps1 <span style="color:#52a962">[Machine 1]</span>
     |
     |  Run on a healthy/online machine.
     |  Refreshes the local installer cache and caches WinGet itself.
     v
-1_bootstrap-machine.ps1
+1_bootstrap-machine.ps1 <span style="color:#4893f4">[Machine 2]</span>
     |
     |  Run on a fresh/reset machine.
     |  Prepares the machine, restores WinGet if needed, installs applications,
     |  and can optionally apply Windows configuration.
     v
-2_install-applications.ps1
-       |
-       |  Application installer only.
-       |  Can also be run independently later without re-running machine setup.
-       v
-    Installed applications
-```
+2_install-applications.ps1 <span style="color:#4893f4">[Machine 2]</span>
+    |
+    |  Application installer only.
+    |  Can also be run independently later without re-running machine setup.
+    v
+Installed applications
+</div>
 
 ### Quickstart:
 1. Clone/Download this project to your normal machine
@@ -39,9 +39,8 @@ access a hard dependency**.
 
 It will try to resolve the packages from the internet and get the newest version, and fall-back to your offline backups
 in case it fails.
-
+<br><br>
 ---
-
 
 #### Difference between `1_bootstrap-machine.ps1` and `2_install-applications.ps1` 
 For now there is none. Former runs optional Windows configurations from `./configs`, but given they are empty, both scripts
@@ -88,6 +87,8 @@ also re-running machine initialization or Windows configuration.
 | Proton Drive      | `Proton.ProtonDrive`             | `winget`  | Extra    | Resolvable / cacheable                                                             |
 | Proton Pass       | `Proton.ProtonPass`              | `winget`  | Extra    | Resolvable / cacheable                                                             |
 | WhatsApp          | `9NBDXK71NK08`                   | `msstore` | Extra    | Resolvable online; not cached                                                      |
+
+---
 
 ## 0. Refresh the offline cache
 
