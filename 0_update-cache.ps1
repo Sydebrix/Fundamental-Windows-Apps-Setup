@@ -32,7 +32,7 @@ if (-not $winget) {
 
 $packages = Select-PackagesByProfile `
     -PackageList $PackageList `
-    -Profile $IncludeProfile `
+    -IncludeProfile $IncludeProfile `
     -ExcludeProfile $ExcludeProfile
 
 $results = @()

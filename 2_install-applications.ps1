@@ -170,7 +170,7 @@ function Install-OnlinePackage {
 
 $packages = Select-PackagesByProfile `
     -PackageList $PackageList `
-    -Profile $IncludeProfile `
+    -IncludeProfile $IncludeProfile `
     -ExcludeProfile $ExcludeProfile
 
 if (-not $packages) {
