@@ -19,5 +19,5 @@ if ($InteractiveOfflineFallback) {
     $invokeArgs.InteractiveOfflineFallback = $true
 }
 
-& (Join-Path $PSScriptRoot "..\install.ps1") @invokeArgs
+& (Join-Path $PSScriptRoot "..\2_install-applications.ps1") @invokeArgs
 exit $LASTEXITCODE

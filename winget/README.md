@@ -15,7 +15,7 @@ On a machine where WinGet is missing:
 .\winget\Install-WinGetOffline.ps1
 ```
 
-The main `bootstrap.ps1` does this automatically if WinGet cannot be found and a
+The main `1_bootstrap-machine.ps1` does this automatically if WinGet cannot be found and a
 WinGet cache exists.
 
 This is mainly insurance. Normal Windows 11 installations usually already ship
