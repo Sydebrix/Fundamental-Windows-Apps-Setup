@@ -165,18 +165,18 @@ $PackageList = @(
         OfflineExeArgs = "/headless"
         Notes = ""
     },
-    [pscustomobject]@{
-        Name = "RustDesk"
-        Id = "RustDesk.RustDesk"
-        Source = "winget"
-        Cacheable = $true
-        Groups = @("Base", "Dev")
-        PreferredInstallerType = ""
-        Scope = "machine"
-        FilePattern = "rustdesk*"
-        OfflineExeArgs = "--silent-install"
-        Notes = "The WinGet package has historically lagged behind upstream RustDesk releases. See NOTES.md."
-    },
+#    [pscustomobject]@{
+#        Name = "RustDesk"
+#        Id = "RustDesk.RustDesk"
+#        Source = "winget"
+#        Cacheable = $true
+#        Groups = @("Base", "Dev")
+#        PreferredInstallerType = ""
+#        Scope = "machine"
+#        FilePattern = "rustdesk*"
+#        OfflineExeArgs = "--silent-install"
+#        Notes = "The WinGet package has historically lagged behind upstream RustDesk releases. See NOTES.md."
+#    },
     [pscustomobject]@{
         Name = "Proton Drive"
         Id = "Proton.ProtonDrive"
