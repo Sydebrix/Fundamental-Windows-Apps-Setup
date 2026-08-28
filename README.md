@@ -65,28 +65,28 @@ also re-running machine initialization or Windows configuration.
 - Dev: Basic Runtimes + Docker
 - Extra: Stuff that requires an Account
 
-| Software          | WinGet ID                        | Source    | Profiles | Status                                                                             |
-|-------------------|----------------------------------|-----------|----------|------------------------------------------------------------------------------------|
-| Firefox           | `Mozilla.Firefox`                | `winget`  | Base     | Resolvable / cacheable                                                             |
-| 7-Zip             | `7zip.7zip`                      | `winget`  | Base     | Resolvable / cacheable                                                             |
-| Notepad++         | `Notepad++.Notepad++`            | `winget`  | Base     | Resolvable / cacheable                                                             |
-| PowerToys         | `Microsoft.PowerToys`            | `winget`  | Base     | Resolvable / cacheable                                                             |
-| Everything        | `voidtools.Everything`           | `winget`  | Base     | Resolvable / cacheable                                                             |
-| Tailscale         | `Tailscale.Tailscale`            | `winget`  | Base     | Resolvable / cacheable                                                             |
-| Git               | `Git.Git`                        | `winget`  | Base     | Resolvable / cacheable                                                             |
-| Obsidian          | `Obsidian.Obsidian`              | `winget`  | Base     | Resolvable / cacheable                                                             |
-| VLC               | `VideoLAN.VLC`                   | `winget`  | Media    | Resolvable / cacheable                                                             |
-| Spotify           | `Spotify.Spotify`                | `winget`  | Media    | Resolvable / Not cacheable, Spotify replaced the installer and hashes don't match. |
-| Screenpresso      | `Learnpulse.Screenpresso`        | `winget`  | Media    | Resolvable / cacheable                                                             |
-| FFmpeg            | `Gyan.FFmpeg`                    | `winget`  | Media    | Resolvable / cacheable; ZIP offline handling not yet implemented                   |
-| Java JDK 25       | `EclipseAdoptium.Temurin.25.JDK` | `winget`  | Dev      | Resolvable / cacheable                                                             |
-| Python 3.14       | `Python.Python.3.14`             | `winget`  | Dev      | Resolvable / cacheable                                                             |
-| .NET SDK 10       | `Microsoft.DotNet.SDK.10`        | `winget`  | Dev      | Resolvable / cacheable                                                             |
-| Docker Desktop    | `Docker.DockerDesktop`           | `winget`  | Dev      | Resolvable / cacheable; requires virtualization backend                            |
-| JetBrains Toolbox | `JetBrains.Toolbox`              | `winget`  | Extra    | Resolvable / cacheable                                                             |
-| Proton Drive      | `Proton.ProtonDrive`             | `winget`  | Extra    | Resolvable / cacheable                                                             |
-| Proton Pass       | `Proton.ProtonPass`              | `winget`  | Extra    | Resolvable / cacheable                                                             |
-| WhatsApp          | `9NBDXK71NK08`                   | `msstore` | Extra    | Resolvable online; not cached                                                      |
+| Software          | WinGet ID                        | Source    | Profiles     | Status                                                                             |
+|-------------------|----------------------------------|-----------|--------------|------------------------------------------------------------------------------------|
+| Firefox           | `Mozilla.Firefox`                | `winget`  | Base         | Resolvable / cacheable                                                             |
+| 7-Zip             | `7zip.7zip`                      | `winget`  | Base         | Resolvable / cacheable                                                             |
+| Notepad++         | `Notepad++.Notepad++`            | `winget`  | Base         | Resolvable / cacheable                                                             |
+| PowerToys         | `Microsoft.PowerToys`            | `winget`  | Base         | Resolvable / cacheable                                                             |
+| Everything        | `voidtools.Everything`           | `winget`  | Base         | Resolvable / cacheable                                                             |
+| Tailscale         | `Tailscale.Tailscale`            | `winget`  | Base         | Resolvable / cacheable                                                             |
+| Git               | `Git.Git`                        | `winget`  | Base         | Resolvable / cacheable                                                             |
+| Obsidian          | `Obsidian.Obsidian`              | `winget`  | Base         | Resolvable / cacheable                                                             |
+| VLC               | `VideoLAN.VLC`                   | `winget`  | Media        | Resolvable / cacheable                                                             |
+| Spotify           | `Spotify.Spotify`                | `winget`  | Media, Extra | Resolvable / Not cacheable, Spotify replaced the installer and hashes don't match. |
+| Screenpresso      | `Learnpulse.Screenpresso`        | `winget`  | Media        | Resolvable / cacheable                                                             |
+| FFmpeg            | `Gyan.FFmpeg`                    | `winget`  | Media        | Resolvable / cacheable; ZIP offline handling not yet implemented                   |
+| Java JDK 25       | `EclipseAdoptium.Temurin.25.JDK` | `winget`  | Dev          | Resolvable / cacheable                                                             |
+| Python 3.14       | `Python.Python.3.14`             | `winget`  | Dev          | Resolvable / cacheable                                                             |
+| .NET SDK 10       | `Microsoft.DotNet.SDK.10`        | `winget`  | Dev          | Resolvable / cacheable                                                             |
+| Docker Desktop    | `Docker.DockerDesktop`           | `winget`  | Dev          | Resolvable / cacheable; requires virtualization backend                            |
+| JetBrains Toolbox | `JetBrains.Toolbox`              | `winget`  | Dev, Extra   | Resolvable / cacheable                                                             |
+| Proton Drive      | `Proton.ProtonDrive`             | `winget`  | Extra        | Resolvable / cacheable                                                             |
+| Proton Pass       | `Proton.ProtonPass`              | `winget`  | Extra        | Resolvable / cacheable                                                             |
+| WhatsApp          | `9NBDXK71NK08`                   | `msstore` | Extra        | Resolvable online; not cached                                                      |
 
 ---
 
